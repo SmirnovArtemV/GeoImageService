@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{50150936-A6A7-4D47-8F55-3BB8BC5A261B}"
+	ProjectSection(SolutionItems) = preProject
+		src\docker-compose.yml = src\docker-compose.yml
+		src\requests.txt = src\requests.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{8592A3AA-F5A0-4903-83E5-9442546A3866}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{3492D92C-0C00-4DBC-8770-36A091081D06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "application", "application", "{AE66A9A3-DAAE-4FF0-BEBE-504CA4FBCD47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoImageService.Infrastructure", "src\infrastructure\GeoImageService.Infrastructure\GeoImageService.Infrastructure.csproj", "{FBFB5BA4-A536-4C36-86F1-1F529C351890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoImageService.Application.Models", "src\application\GeoImageService.Application.Models\GeoImageService.Application.Models.csproj", "{56FCC65C-1798-4D58-B62C-D344F166430D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoImageService.Application", "src\application\GeoImageService.Application\GeoImageService.Application.csproj", "{364EE2E5-4318-4AE0-A80B-4BD9BE598AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoImageService.Presentation", "src\presentation\GeoImageService.Presentation\GeoImageService.Presentation.csproj", "{D0D85550-AB0D-4594-B8D6-DB93F3B4B00D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoImageSerrvice.Abstractions", "src\application\GeoImageSerrvice.Abstractions\GeoImageSerrvice.Abstractions.csproj", "{1CABA529-A39E-4BCD-8F4F-B75C61B79C0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8592A3AA-F5A0-4903-83E5-9442546A3866} = {50150936-A6A7-4D47-8F55-3BB8BC5A261B}
+		{3492D92C-0C00-4DBC-8770-36A091081D06} = {50150936-A6A7-4D47-8F55-3BB8BC5A261B}
+		{AE66A9A3-DAAE-4FF0-BEBE-504CA4FBCD47} = {50150936-A6A7-4D47-8F55-3BB8BC5A261B}
+		{FBFB5BA4-A536-4C36-86F1-1F529C351890} = {3492D92C-0C00-4DBC-8770-36A091081D06}
+		{56FCC65C-1798-4D58-B62C-D344F166430D} = {AE66A9A3-DAAE-4FF0-BEBE-504CA4FBCD47}
+		{364EE2E5-4318-4AE0-A80B-4BD9BE598AFB} = {AE66A9A3-DAAE-4FF0-BEBE-504CA4FBCD47}
+		{D0D85550-AB0D-4594-B8D6-DB93F3B4B00D} = {8592A3AA-F5A0-4903-83E5-9442546A3866}
+		{1CABA529-A39E-4BCD-8F4F-B75C61B79C0D} = {AE66A9A3-DAAE-4FF0-BEBE-504CA4FBCD47}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBFB5BA4-A536-4C36-86F1-1F529C351890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBFB5BA4-A536-4C36-86F1-1F529C351890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBFB5BA4-A536-4C36-86F1-1F529C351890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBFB5BA4-A536-4C36-86F1-1F529C351890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FCC65C-1798-4D58-B62C-D344F166430D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FCC65C-1798-4D58-B62C-D344F166430D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FCC65C-1798-4D58-B62C-D344F166430D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FCC65C-1798-4D58-B62C-D344F166430D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{364EE2E5-4318-4AE0-A80B-4BD9BE598AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{364EE2E5-4318-4AE0-A80B-4BD9BE598AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{364EE2E5-4318-4AE0-A80B-4BD9BE598AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{364EE2E5-4318-4AE0-A80B-4BD9BE598AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D85550-AB0D-4594-B8D6-DB93F3B4B00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D85550-AB0D-4594-B8D6-DB93F3B4B00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D85550-AB0D-4594-B8D6-DB93F3B4B00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D85550-AB0D-4594-B8D6-DB93F3B4B00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CABA529-A39E-4BCD-8F4F-B75C61B79C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CABA529-A39E-4BCD-8F4F-B75C61B79C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CABA529-A39E-4BCD-8F4F-B75C61B79C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CABA529-A39E-4BCD-8F4F-B75C61B79C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

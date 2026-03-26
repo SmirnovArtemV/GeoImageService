@@ -1,0 +1,11 @@
+.idea
+
+GeoImageService.sln.DotSettings.user
+
+src/data
+src/geoTiffFiles
+
+bin/
+obj/
+*.dll
+*.exe

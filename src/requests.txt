@@ -1,0 +1,20 @@
+cut:
+
+{
+  "topLeft": {
+      "latitude": 59.67921,
+      "longitude": 29.257594
+    },
+    "topRight": {
+      "latitude": 59.67921,
+      "longitude": 30.903854
+    },
+    "bottomRight": {
+      "latitude": 60.059263,
+      "longitude": 30.903854
+    },
+    "bottomLeft": {
+      "latitude": 60.059263,
+      "longitude": 29.257594
+    }
+}
