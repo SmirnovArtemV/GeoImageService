@@ -9,6 +9,7 @@ using OSGeo.GDAL;
 
 namespace GeoImageService.Application.Helpers;
 
+// имеет смысл спрятать за интерфейс, так как может быть реализация обработки картинок не только с GDAL. Еще н еочень нравится Helper в названии
 public class GdalHelper
 {
     private readonly StorageOptions _storageOptions;
