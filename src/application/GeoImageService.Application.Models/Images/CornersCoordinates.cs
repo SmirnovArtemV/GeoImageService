@@ -1,5 +1,6 @@
 namespace GeoImageService.Application.Models.Images;
 
+// Вероятно эту ДТОшку имеет смысл сделать "умнее" и всю логику вычисления мин и макс лат и лон вынести сюда. Или в отдельный класс математики.
 public class CornersCoordinates
 {
     public Coordinate TopLeft { get; init; }
