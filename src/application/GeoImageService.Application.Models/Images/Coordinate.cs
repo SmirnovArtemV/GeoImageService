@@ -10,6 +10,6 @@ public class Coordinate
         Latitude = latitude;
         Longitude = longitude;
     }
-    
+    // Зачем пустые конструкторы? Видимо из-за слоя БД, но в БД должны быть свои дтошки
     public Coordinate(){}
 }
