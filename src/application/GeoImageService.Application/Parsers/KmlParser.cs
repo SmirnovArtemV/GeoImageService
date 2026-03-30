@@ -4,8 +4,14 @@ using GeoImageService.Application.Models.Images;
 
 namespace GeoImageService.Application.Parsers;
 
+// Почему статик? Спрятать за интерфейс и сделать не статик. Реализаций парсера кмл может быть много.
 public static class KmlParser
 {
+    // TryDo паттерн выглядит так:
+    // bool TryDo(..., out result)
+    // в твоем случае - TryParseCoordinates(XmlDocument xmlDocument, out CornerCoordinates coordinates)
+    // так значительно проще использовать (нет проверок на null) и меньше вероятность null reference exception
+    // Также стоит рассмотреть перегрузку метода - принимать сразу Stream - клиентский код вроде так использует везде
     public static CornersCoordinates? TryParseCoordinates(XmlDocument xmlDocument)
     {
         try
