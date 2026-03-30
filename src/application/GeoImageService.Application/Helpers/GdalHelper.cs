@@ -27,8 +27,10 @@ public class GdalHelper
         xmlDocument.Load(kmlStream);
         var cornersCoordinates = KmlParser.TryParseCoordinates(xmlDocument);
 
+        // if nesting hell - лучше инвертировать условие, будет меньше вложенность, лучше читаемость
         if (cornersCoordinates != null)
         {
+            // всю эту логику определения мин и макс вынетси куда-нибудь в класс математики.
             var minLon = new[]
             {
                 cornersCoordinates.TopLeft.Longitude,
@@ -61,10 +63,14 @@ public class GdalHelper
                 cornersCoordinates.BottomRight.Latitude
             }.Max();
 
+            // зачем до этого что-то делали, если после невыполнения условия просто выйдем из метода?
+            // лучше все проверки вынести в начало метода и сразу завершать метод или кидать эксепшн
             if (_storageOptions.GeoTiffPath != null)
             {
                 var tiffPath = Path.Combine(_storageOptions.GeoTiffPath,
                     fileName + ".tif");
+
+                // опять проверка после полезной работы
                 if (_storageOptions.StoragePath == null)
                 {
                     throw new Exception("Storage path not set");
@@ -72,6 +78,7 @@ public class GdalHelper
 
                 var photoPath = Path.Combine(_storageOptions.StoragePath, fileName + ".jpg");
 
+                // что будет если GDAL внутри упадет?
                 var options = new GDALTranslateOptions([
                     "-of", "GTiff",
                     "-a_ullr",
@@ -87,6 +94,8 @@ public class GdalHelper
         }
     }
 
+
+    // вынести в математику какую-нибудь, к GDAL это отношения не имеет
     public static bool DoesRectangleCrossesImage(CornersCoordinates rect, CornersCoordinates img)
     {
         var rectMinLat = new[]
