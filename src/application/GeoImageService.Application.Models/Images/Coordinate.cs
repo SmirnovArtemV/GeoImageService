@@ -2,8 +2,8 @@ namespace GeoImageService.Application.Models.Images;
 
 public class Coordinate
 {
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
+    public double Latitude { get; init; }
+    public double Longitude { get; init; }
 
     public Coordinate(double latitude, double longitude)
     {

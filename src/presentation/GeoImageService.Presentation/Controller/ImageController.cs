@@ -1,5 +1,9 @@
+using System.Xml;
 using GeoImageService.Application.Images;
+using GeoImageService.Application.Models.DTO;
 using GeoImageService.Application.Models.Images;
+using GeoImageService.Application.Models.Requests;
+using GeoImageService.Application.Parsers;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +21,7 @@ public class ImageController : ControllerBase
 
     [HttpGet]
     [Route("api/image")]
-    public async Task<ActionResult<IEnumerable<Image>>> GetAllImagesInfos(CancellationToken ct)
+    public async Task<ActionResult<IEnumerable<ImageDto>>> GetAllImagesInfos(CancellationToken ct)
     {
         var results = await _service.GetAllAsync(ct);
         return Ok(results);
@@ -25,7 +29,7 @@ public class ImageController : ControllerBase
 
     [HttpPost]
     [Route("api/image")]
-    public async Task<ActionResult<Image>> SaveImage(IFormFile photo, IFormFile kmlFile, [FromQuery] string filename,
+    public async Task<ActionResult<ImageDto>> SaveImage(IFormFile photo, IFormFile kmlFile, [FromQuery] string filename,
         CancellationToken ct)
     {
         var image = await _service.CreateAsync(photo, kmlFile, filename, ct);
@@ -34,15 +38,16 @@ public class ImageController : ControllerBase
 
     [HttpGet]
     [Route("api/image/get-intersection-images")]
-    public async Task<ActionResult<IEnumerable<Image>>> GetImageInfos([FromQuery] CornersCoordinates rectangle, CancellationToken ct)
+    public async Task<ActionResult<IEnumerable<ImageDto>>> GetImageInfos([FromQuery] CornersCoordinates rectangle,
+        CancellationToken ct)
     {
         return await _service.GetImagesByCoordinateIntersection(rectangle, ct);
     }
 
     [HttpPost]
     [Route("api/image/cut")]
-    public async Task<ActionResult<Image>> CutImage([FromBody] CornersCoordinates rectangle, CancellationToken ct)
+    public async Task<ActionResult<CutImageDto>> CutImage([FromBody] CutImageRequest request, CancellationToken ct)
     {
-        return await _service.CutImage(rectangle, ct);
+        return await _service.CutImage(request.CornersCoordinates, request.TimeStamps, ct);
     }
 }

@@ -1,4 +1,5 @@
 using GeoImageSerrvice.Abstractions.Repositories;
+using GeoImageService.Application.Helpers;
 using GeoImageService.Application.Images;
 using GeoImageService.Application.Models.Images;
 using GeoImageService.Application.Models.Options;
@@ -23,6 +24,7 @@ builder.Services.AddDbContext<ApplicationContext>((serviceProvider, options) =>
 });
 
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
+builder.Services.AddScoped<GdalHelper>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -27,6 +27,7 @@ public class ApplicationContext : DbContext
                 corners.OwnsOne(c => c.BottomRight);
                 corners.OwnsOne(c => c.BottomLeft);
             });
+            entity.OwnsOne(e => e.TimeStamps);
         });
     }
 

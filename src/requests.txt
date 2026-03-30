@@ -1,7 +1,8 @@
 cut:
 
 {
-  "topLeft": {
+  "cornersCoordinates": {
+    "topLeft": {
       "latitude": 59.67921,
       "longitude": 29.257594
     },
@@ -17,4 +18,9 @@ cut:
       "latitude": 60.059263,
       "longitude": 29.257594
     }
+  },
+  "timeStamps": {
+    "start": 503399984.300409,
+    "end": 506958277.545978
+  }
 }

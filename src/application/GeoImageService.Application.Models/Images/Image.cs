@@ -2,19 +2,26 @@ namespace GeoImageService.Application.Models.Images;
 
 public class Image
 {
-    public long Id { get; set; }
-    public string FilePath { get; set; }
-    
-    public string GeoTiffFilePath { get; set; }
-    
-    public CornersCoordinates CornersCoordinates { get; set; }
+    public long Id { get; init; }
+    public string FilePath { get; init; }
 
-    public Image(long id, string filePath, CornersCoordinates cornersCoordinates)
+    public string GeoTiffFilePath { get; init; }
+
+    public CornersCoordinates CornersCoordinates { get; init; }
+
+    public TimeStamps TimeStamps { get; init; }
+
+    public Image(long id, string filePath, string geoTiffPath, CornersCoordinates cornersCoordinates,
+        TimeStamps timeStamps)
     {
         Id = id;
         FilePath = filePath;
+        GeoTiffFilePath = geoTiffPath;
         CornersCoordinates = cornersCoordinates;
+        TimeStamps = timeStamps;
     }
-    
-    public Image(){}
+
+    public Image()
+    {
+    }
 };

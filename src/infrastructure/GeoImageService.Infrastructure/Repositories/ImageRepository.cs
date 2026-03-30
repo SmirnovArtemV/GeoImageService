@@ -14,13 +14,14 @@ public class ImageRepository : IImageRepository
         _context = context;
     }
 
-    public async Task<Image> CreateAsync(CornersCoordinates coordinates, string filePath, string geoTiffPath, CancellationToken cancellationToken)
+    public async Task<Image> CreateAsync(CornersCoordinates coordinates, string filePath, string geoTiffPath, TimeStamps timeStamps, CancellationToken cancellationToken)
     {
         var image = new Image
         {
             CornersCoordinates = coordinates,
             FilePath = filePath,
             GeoTiffFilePath = geoTiffPath,
+            TimeStamps = timeStamps,
         };
         _context.Images.Add(image);
         await _context.SaveChangesAsync(cancellationToken);

@@ -2,11 +2,11 @@ namespace GeoImageService.Application.Models.Images;
 
 public class CornersCoordinates
 {
-    public Coordinate TopLeft { get; set; }
-    public Coordinate TopRight { get; set; }
-    public Coordinate BottomRight { get; set; }
-    public Coordinate BottomLeft { get; set; }
-    
+    public Coordinate TopLeft { get; init; }
+    public Coordinate TopRight { get; init; }
+    public Coordinate BottomRight { get; init; }
+    public Coordinate BottomLeft { get; init; }
+
     public CornersCoordinates(
         Coordinate topLeft,
         Coordinate topRight,
@@ -18,6 +18,8 @@ public class CornersCoordinates
         BottomRight = bottomRight;
         BottomLeft = bottomLeft;
     }
-    
-    public CornersCoordinates(){}
+
+    public CornersCoordinates()
+    {
+    }
 }
