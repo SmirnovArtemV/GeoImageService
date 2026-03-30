@@ -1,4 +1,6 @@
 using GeoImageSerrvice.Abstractions.Repositories;
+// Слой БД узнал про слой Application - зависимость должна быть в другую сторону
+// так произошло, потому что нет выделенных ДТО для БД
 using GeoImageService.Application.Models.Images;
 using GeoImageService.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
