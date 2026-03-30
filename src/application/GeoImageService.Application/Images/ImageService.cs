@@ -88,6 +88,8 @@ public class ImageService
     public async Task<CutImageDto> CutImage(CornersCoordinates rectangle, TimeStamps timeStamps,
         CancellationToken cancellationToken)
     {
+        
+        // что будет, если одна из картинок внутри юзерского выделения?
         var imagesByCoordinateIntersection =
             FilterByTimeStamps(await GetImagesByCoordinateIntersection(rectangle, cancellationToken), timeStamps);
 
