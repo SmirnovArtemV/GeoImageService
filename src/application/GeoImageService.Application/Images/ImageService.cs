@@ -13,6 +13,9 @@ using OSGeo.GDAL;
 
 namespace GeoImageService.Application.Images;
 
+// Не хватает тестов на математику, на парсер кмл
+// возможно, еще тесты на этот сервис?
+
 public class ImageService
 {
     private readonly IImageRepository _imageRepository;
