@@ -36,10 +36,13 @@ public class ImageService
         {
             var xmlDocument = new XmlDocument();
             xmlDocument.Load(kmlStream);
+            // Удобнее будет, если кмл парсер будет возвращать какую-нибудь структуру "KML" с координатами и длительностью.
             cornersCoordinates = KmlParser.TryParseCoordinates(xmlDocument);
             timeStamps = KmlParser.TryParseTimeStamps(xmlDocument);
         }
 
+
+        // if nesting hell - инвертировать и будет проще для чтения
         if (_storageOptions is { StoragePath: not null, GeoTiffPath: not null })
         {
             var fullPath = Path.Combine(_storageOptions.StoragePath, fileName + ".jpg");
@@ -73,6 +76,8 @@ public class ImageService
     {
         var allImages = await _imageRepository.GetAllAsync(cancellationToken);
         var dtos = allImages.Select(ImageMapper.ToDto).ToList();
+
+        // Если используешь Fluent linq (вроде так называется?), то его и придерживаться, а не приплетать еще query
         var result = (from dto in dtos
             let coord = dto.CornersCoordinates
             where GdalHelper.DoesRectangleCrossesImage(cornersCoordinates, coord)
@@ -99,14 +104,19 @@ public class ImageService
         }
 
         var fileName = $"cut_{DateTime.UtcNow:yyyyMMdd_HHmmss}";
+
+        // проверка после полезной работы, можно сделать в начале метода
         if (_storageOptions.GeoTiffPath == null) throw new Exception("Invalid data");
         var outputTiffPath = Path.Combine(_storageOptions.GeoTiffPath, fileName + ".tif");
 
+        // в ImageService протекла логика GDAL
         var warpOptions = new GDALWarpAppOptions([
             "-of", "GTiff",
             "-t_srs", "EPSG:4326",
             "-r", "bilinear",
             "-te",
+
+            // какие-то странные детали реализации, почему именно у этих углов берем лат и лон? а не иначе?
             rectangle.TopLeft.Longitude.ToString(CultureInfo.InvariantCulture),
             rectangle.TopRight.Latitude.ToString(CultureInfo.InvariantCulture),
             rectangle.BottomRight.Longitude.ToString(CultureInfo.InvariantCulture),
